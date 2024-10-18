@@ -1,0 +1,43 @@
+class TravelPlan:
+    def __init__(self, destination, date, notes):
+        self.destination = destination
+        self.date = date
+        self.notes = notes
+
+def add_travel_plan(plans):
+    destination = input("Enter destination: ")
+    date = input("Enter date (YYYY-MM-DD): ")
+    notes = input("Enter notes: ")
+    plans.append(TravelPlan(destination, date, notes))
+
+def view_travel_plans(plans):
+    if not plans:
+        print("No travel plans available.")
+        return
+    for i, plan in enumerate(plans):
+        print(f"Travel Plan {i + 1}:")
+        print(f"Destination: {plan.destination}")
+        print(f"Date: {plan.date}")
+        print(f"Notes: {plan.notes}")
+        print("------------------------")
+
+def main():
+    plans = []
+    while True:
+        print("Travel Planner Application")
+        print("1. Add Travel Plan")
+        print("2. View Travel Plans")
+        print("3. Exit")
+        choice = input("Enter your choice: ")
+        if choice == '1':
+            add_travel_plan(plans)
+        elif choice == '2':
+            view_travel_plans(plans)
+        elif choice == '3':
+            print("Exiting application...")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
